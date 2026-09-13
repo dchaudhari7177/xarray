@@ -53,6 +53,9 @@ jobs:
           GITHUB_LABEL: ${{ github.event.pull_request.base.label }}
         run: |
           set -x
+          # Without pipefail the step's status is tee's, so an asv run that exits early
+          # (e.g. no usable environment) reports success.
+          set -o pipefail
           # ID this runner
           asv machine --yes
           echo "Baseline:  ${{ github.event.pull_request.base.sha }} ($GITHUB_LABEL)"

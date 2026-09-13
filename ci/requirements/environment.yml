@@ -34,6 +34,7 @@ dependencies:
   # - pint>=0.22
   - pip
   - pooch
+  - py-rattler # asv's rattler environments, used by the benchmark-last-release workflow
   - pre-commit
   - pyarrow # pandas raises a deprecation warning without this, breaking doctests
   - pydap
